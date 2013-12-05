@@ -36,12 +36,9 @@ def state_edges(election_result_rows):
     that is, each state is represented at most once in the input list.
     """
     
-    State_Advantages = {}
-    for row in election_result_rows:
-        edge = row_to_edge(row)
-        state = (row['State'])
-        State_Advantages["State"] = edge
-    return State_Advantages
+    edge2 = {k["State"]: row_to_edge(k) for k in election_result_rows}
+
+    return edge2
 
 ################################################################################
 # Problem 2: Find the most recent poll row
